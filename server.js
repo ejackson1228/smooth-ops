@@ -41,15 +41,44 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/api')
 
 
+//Route Types needed for Modals utilizing CRUD:  getAll, getById, create, POST, Delete
+//Routes for User
+
+
+
+
+
+//Post Routes
+
+
+
+
+//Comment Routes
+
+
+
+
+//Vote Routes
+
+
+
+
+//Pokemon Routes
+
+
+
+
+
+
+
+sequelize.sync({ force: true }).then(() => {
+  app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
+})
 
 
 app.listen(PORT, () => {
   console.log(`API server now on port 3001!`);
 });
 
-sequelize.sync({ force: true }).then(() => {
-  app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
-})
