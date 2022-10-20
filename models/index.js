@@ -49,8 +49,7 @@ Post.hasMany(Comment, {
 });
 
 Post.hasOne(Team, {  //post has one poke-team
-    foreignKey: 'post_id',
-    onDelete: 'cascade'
+    foreignKey: 'pokemon_team'
 });
 
 //Comment relationshps
@@ -77,12 +76,12 @@ Team.belongsTo(Post, {
 });
 
 Team.hasMany(Pokemon, {
-    foreignKey: ''
-})
+    foreignKey: 'pokemon_id'
+});
 
 //Pokemon Relationships
 Pokemon.belongsToMany(Team, {
-    foreignKey: ''
-})
+    foreignKey: 'pokemon_id'
+});
 
 module.exports = { User, Vote, Post, Comment, Pokemon, Team };
