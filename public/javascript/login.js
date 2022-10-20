@@ -7,7 +7,10 @@ const loginFormHandler = async (event) => {
   if (email && password) {
     const response = await fetch('/api/users/login', {
       method: 'POST',
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ 
+        email,
+        password
+     }),
       headers: { 'Content-Type': 'application/json' },
     });
 
@@ -17,8 +20,7 @@ const loginFormHandler = async (event) => {
       alert('Failed to log in.');
     }
   }
-};
+}
 
-document
-  .querySelector('.login-form')
-  .addEventListener('submit', loginFormHandler);
+
+document.querySelector('.login-form').addEventListener('submit', loginFormHandler);

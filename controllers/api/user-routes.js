@@ -3,7 +3,7 @@ const { User, Post, Comment, Pokemon, Vote} = require("../../models")
 
 
 //Create New User
-router.post("/",async (req,res)=>{
+router.post('/',async (req,res)=>{
     try {
         const userData = await User.create({
             trainer_name: req.body.trainer,
@@ -43,7 +43,7 @@ router.post('/login', async (req, res) => {
       }
   
       const validPassword = await dbUserData.checkPassword(req.body.password);
-  
+
       if (!validPassword) {
         res
           .status(400)
@@ -64,4 +64,4 @@ router.post('/login', async (req, res) => {
     }
   });
 
-module.exports=router;
+module.exports = router;
