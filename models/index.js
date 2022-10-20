@@ -27,6 +27,20 @@ User.hasMany(Vote, {
     foreignKey: 'user_id',
 });
 
+//Pokemon Relationships
+Pokemon.belongsToMany(Team, {
+    foreignKey: 'pokemon_id'
+});
+
+//Team relationships
+Team.belongsTo(Post, {
+    foreignKey: 'post_id'
+});
+
+Team.hasMany(Pokemon, {
+    foreignKey: 'pokemon_id'
+});
+
 //Post relationships
 Post.belongsTo(User, {
     foreignKey: 'user_id'
@@ -49,8 +63,7 @@ Post.hasMany(Comment, {
 });
 
 Post.hasOne(Team, {  //post has one poke-team
-    foreignKey: 'post_id',
-    onDelete: 'cascade'
+    foreignKey: 'pokemon_team'
 });
 
 //Comment relationshps
@@ -71,18 +84,4 @@ Vote.belongsTo(User, {
     foreignKey: 'user_id'
 });
 
-//Team relationships
-Team.belongsTo(Post, {
-    foreignKey: 'post_id'
-});
-
-Team.hasMany(Pokemon, {
-    foreignKey: ''
-})
-
-//Pokemon Relationships
-Pokemon.belongsToMany(Team, {
-    foreignKey: ''
-})
-
-module.exports = { User, Vote, Post, Comment, Pokemon, Team };
+module.exports = { User, Pokemon, Team, Post, Vote, Comment };

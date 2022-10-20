@@ -17,7 +17,9 @@ const sess = {
     store: new SequelizeStore({
       db: sequelize
     })
-  };
+};
+
+
 
 
 app.use(session(sess));
@@ -33,13 +35,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/api')
-
-
-
-
-app.listen(PORT, () => {
-  console.log(`API server now on port 3001!`);
-});
 
 sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
