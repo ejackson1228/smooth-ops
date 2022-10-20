@@ -19,6 +19,16 @@ const sess = {
     })
   };
 
+
+//Routes for Modals constant variables
+
+const { User } = require('./models/User');
+const { Post } = require('./models/Post');
+const { Comment } = require('./models/Comment');
+const { Vote } = require('./models/Vote');
+const { Pokemon } = require('./models/Pokemon');
+//End Modal Vars for Routes
+
 app.use(session(sess));
 
 const hbs = exphbs.create({});
@@ -30,6 +40,15 @@ app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/api')
+
+
+
+
+app.listen(PORT, () => {
+  console.log(`API server now on port 3001!`);
+});
 
 sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
