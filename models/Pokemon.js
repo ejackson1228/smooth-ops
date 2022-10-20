@@ -20,7 +20,7 @@ Pokemon.init(
             allowNull: true
         },
         poke3: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: true
         },
         poke4: {
@@ -28,7 +28,7 @@ Pokemon.init(
             allowNull: true
         },
         poke5: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: true
         },
         poke6: {

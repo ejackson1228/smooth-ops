@@ -74,3 +74,5 @@ Vote.belongsTo(User, {
 Pokemon.belongsTo(Post, {
     foreignKey: 'post_id'
 });
+
+module.exports = { User, Vote, Post, Comment, Pokemon };
