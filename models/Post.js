@@ -40,7 +40,7 @@ Post.init(
             allowNull: false
         },
         description: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
         },
         pokemon_team: {
             type: DataTypes.INTEGER,
