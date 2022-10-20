@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
+const routes = require("./controllers");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -19,16 +20,6 @@ const sess = {
     })
   };
 
-
-//Routes for Modals constant variables
-
-const { User } = require('./models/User');
-const { Post } = require('./models/Post');
-const { Comment } = require('./models/Comment');
-const { Vote } = require('./models/Vote');
-const { Pokemon } = require('./models/Pokemon');
-//End Modal Vars for Routes
-
 app.use(session(sess));
 
 const hbs = exphbs.create({});
@@ -40,45 +31,10 @@ app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
-
-
-
-//Route Types needed for Modals utilizing CRUD:  getAll, getById, create, POST, Delete
-//Routes for User
-
-
-
-
-
-//Post Routes
-
-
-
-
-//Comment Routes
-
-
-
-
-//Vote Routes
-
-
-
-
-//Pokemon Routes
-
-
-
-
-
-
+app.use(routes);
 
 sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
 })
 
-
-app.listen(PORT, () => {
-  console.log(`API server now on port 3001!`);
-});
 
