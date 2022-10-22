@@ -47,7 +47,8 @@ Post.hasMany(Comment, {
     onDelete: 'cascade'
 });
 
-Post.hasOne(Pokemon, {  //post has one poke-team
+//post has one poke-team
+Post.hasOne(Pokemon, {  
     foreignKey: 'post_id',
     onDelete: 'cascade'
 });
