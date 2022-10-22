@@ -15,13 +15,9 @@ Pokemon.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        type: {
+        url: {
             type: DataTypes.STRING,
             allowNull: false
-        },
-        region: {
-            type: DataTypes.STRING,
-            allowNull: true
         }
     },
     {

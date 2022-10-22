@@ -28,9 +28,9 @@ User.hasMany(Vote, {
 });
 
 //Pokemon Relationships
-Pokemon.belongsToMany(Team, {
-    foreignKey: 'pokemon_id'
-});
+// Pokemon.belongsToMany(Team, {
+//     foreignKey: 'pokemon_id'
+// });
 
 //Team relationships
 Team.belongsTo(Post, {
