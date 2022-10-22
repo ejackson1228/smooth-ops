@@ -16,7 +16,7 @@ Team.init(
             allowNull: false,
             references: {
                 model: 'pokemon',
-                key: 'id'
+                key: 'pokemon_id'
             }
         },
         poke2: {
@@ -24,7 +24,7 @@ Team.init(
             allowNull: true,
             references: {
                 model: 'pokemon',
-                key: 'id'
+                key: 'pokemon_id'
             }
         },
         poke3: {
@@ -32,7 +32,7 @@ Team.init(
             allowNull: true,
             references: {
                 model: 'pokemon',
-                key: 'id'
+                key: 'pokemon_id'
             }
         },
         poke4: {
@@ -40,7 +40,7 @@ Team.init(
             allowNull: true,
             references: {
                 model: 'pokemon',
-                key: 'id'
+                key: 'pokemon_id'
             }
         },
         poke5: {
@@ -48,7 +48,7 @@ Team.init(
             allowNull: true,
             references: {
                 model: 'pokemon',
-                key: 'id'
+                key: 'pokemon_id'
             }
         },
         poke6: {
@@ -56,23 +56,7 @@ Team.init(
             allowNull: true,
             references: {
                 model: 'pokemon',
-                key: 'id'
-            }
-        },
-        post_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: 'post',
-                key: 'id'
-            }
-        },
-        user_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: 'user',
-                key: 'id'
+                key: 'pokemon_id'
             }
         }
     },
