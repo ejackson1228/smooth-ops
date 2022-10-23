@@ -45,7 +45,7 @@ Post.init(
         pokemon_team: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'pokemon',
+                model: 'team',
                 key: 'id'
             }
         },

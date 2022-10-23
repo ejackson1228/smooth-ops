@@ -3,6 +3,7 @@ const Post = require('./Post');
 const Comment = require('./Comment');
 const Vote = require('./Vote');
 const Pokemon = require('./Pokemon');
+const Team = require('./Team');
 
 // User relationships
 User.hasMany(Post, {
@@ -26,6 +27,21 @@ User.hasMany(Vote, {
     foreignKey: 'user_id',
 });
 
+//Pokemon Relationships
+//Commented this out because it breaks the code
+// Pokemon.belongsToMany(Team, {
+//     foreignKey: 'pokemon_id'
+// });
+
+//Team relationships
+Team.belongsTo(Post, {
+    foreignKey: 'post_id'
+});
+
+Team.hasMany(Pokemon, {
+    foreignKey: 'pokemon_id'
+});
+
 //Post relationships
 Post.belongsTo(User, {
     foreignKey: 'user_id'
@@ -47,10 +63,8 @@ Post.hasMany(Comment, {
     onDelete: 'cascade'
 });
 
-//post has one poke-team
-Post.hasOne(Pokemon, {  
-    foreignKey: 'post_id',
-    onDelete: 'cascade'
+Post.hasOne(Team, {  //post has one poke-team
+    foreignKey: 'pokemon_team'
 });
 
 //Comment relationshps
@@ -71,9 +85,4 @@ Vote.belongsTo(User, {
     foreignKey: 'user_id'
 });
 
-//Pokemon relationships
-Pokemon.belongsTo(Post, {
-    foreignKey: 'post_id'
-});
-
-module.exports = { User, Vote, Post, Comment, Pokemon };
+module.exports = { User, Pokemon, Team, Post, Vote, Comment };
