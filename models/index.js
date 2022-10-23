@@ -28,9 +28,9 @@ User.hasMany(Vote, {
 });
 
 //Pokemon Relationships
-Pokemon.belongsToMany(Team, { //needs through relationship otherwise server wont start and seeds wont work
-    foreignKey: 'pokemon_id'
-});
+// Pokemon.belongsToMany(Team, { //needs through relationship otherwise server wont start and seeds wont work
+//     foreignKey: 'pokemon_id'
+// });
 
 //Team relationships
 Team.belongsTo(Post, {
