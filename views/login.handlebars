@@ -1,18 +1,32 @@
-<div class="row justify-space-between-md">
-  <div class="login-card">
-    <h2 class="page-title">Login</h2>
-    <form class="form login-form">
-      <div class="form-group">
-        <label for="email-login">Email:</label>
-        <input class="form-input" type="text" id="email-login" />
-      </div>
-      <div class="form-group">
-        <label for="password-login">Password:</label>
-        <input class="form-input" type="password" id="password-login" />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">login</button>
-      </div>
-    </form>
+<form class="login-form">
+  <div>
+    <label for="email-login">email:</label>
+    <input type="text" id="email-login" />
   </div>
-  <script src="./js/login.js"></script>
+  <div>
+    <label for="password-login">password:</label>
+    <input type="password" id="password-login" />
+  </div>
+  <div>
+    <button type="submit">login</button>
+  </div>
+</form>
+<form class="signup-form">
+  <div>
+    <label for="username-signup">username:</label>
+    <input type="text" id="username-signup" />
+  </div>
+  <div>
+    <label for="email-signup">email:</label>
+    <input type="text" id="email-signup" />
+  </div>
+  <div>
+    <label for="password-signup">password:</label>
+    <input type="password" id="password-signup" />
+  </div>
+  <div>
+    <button type="submit">signup</button>
+  </div>
+</form>
+{{!-- remember to give the absolute path, not relative file path --}}
+<script src="/javascript/login.js"></script>
