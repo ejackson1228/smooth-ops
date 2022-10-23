@@ -15,9 +15,13 @@
         <a href="/">Operation Pokedex</a>
       </h1>
       <nav>
-        {{!-- login is a link bc it leads to another page --}}
+        {{#if loggedIn}}
+        <button id="logout" class="btn-no-style">logout</button>
+        {{else}}
+        {{!-- login/signup are links bc they lead to another page --}}
         <a href="/login">login</a>
         <a href="/login">sign up</a>
+        {{/if}}
       </nav>
     </header>
     <main>
@@ -25,9 +29,12 @@
     </main>
     <footer>
       Go catch 'em all!
+      {{!-- add media links / credits --}}
     </footer>
   </div>
+  {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
+  {{/if}}
 </body>
 
 </html>
