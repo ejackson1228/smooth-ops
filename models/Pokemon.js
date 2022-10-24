@@ -15,13 +15,24 @@ Pokemon.init(
             type: DataTypes.STRING,
             allowNull: false
         },
+        url:{
+            type: DataTypes.STRING,
+            allowNull:false
+        },
         type: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         region: {
             type: DataTypes.STRING,
             allowNull: true
+        },
+        team_id:{
+            type: DataTypes.INTEGER,
+            references:{
+                model:'team',
+                key: 'id'
+            }
         }
     },
     {

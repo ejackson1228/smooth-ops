@@ -1,31 +1,31 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Post extends Model {
-    static upvote(body, models) {
-        return models.Vote.create({
-            user_id: body.user_id,
-            post_id: body.post_id
-        }).then(() => {
-            return Post.findOne({
-                where: {
-                    id: body.post_id
-                },
-                attributes: [
-                    'id',
-                    'title',
-                    'description',
-                    'pokemon_team',
-                    'created_at',
-                    [
-                        sequelize.literal('SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'),
-                        'vote_count'
-                    ]
-                ]
-            })
-        })
-    }
-};
+class Post extends Model {}
+//     static upvote(body, models) {
+//         return models.Vote.create({
+//             user_id: body.user_id,
+//             post_id: body.post_id
+//         }).then(() => {
+//             return Post.findOne({
+//                 where: {
+//                     id: body.post_id
+//                 },
+//                 attributes: [
+//                     'id',
+//                     'title',
+//                     'description',
+//                     'pokemon_team',
+//                     'created_at',
+//                     [
+//                         sequelize.literal('SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'),
+//                         'vote_count'
+//                     ]
+//                 ]
+//             })
+//         })
+//     }
+// };
 
 Post.init(
     {
@@ -42,16 +42,16 @@ Post.init(
         description: {
             type: DataTypes.STRING,
         },
-        pokemon_team: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'team',
-                key: 'id'
-            }
-        },
+        // pokemon_team: {
+        //     type: DataTypes.INTEGER,
+        //     references: {
+        //         model: 'team',
+        //         key: 'id'
+        //     }
+        // },
         user_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            // allowNull: false,
             references: {
                 model: 'user',
                 key: 'id'

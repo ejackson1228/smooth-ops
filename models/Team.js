@@ -11,50 +11,17 @@ Team.init(
             primaryKey: true,
             autoIncrement: true
         },
-        poke1: {
+        user_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            // allowNull: false,
             references: {
-                model: 'pokemon',
-                key: 'pokemon_id'
+                model: 'user',
+                key: 'id'
             }
         },
-        poke2: {
+        pokemon_id:{
             type: DataTypes.INTEGER,
-            allowNull: true,
-            references: {
-                model: 'pokemon',
-                key: 'pokemon_id'
-            }
-        },
-        poke3: {
-            type: DataTypes.INTEGER,
-            allowNull: true,
-            references: {
-                model: 'pokemon',
-                key: 'pokemon_id'
-            }
-        },
-        poke4: {
-            type: DataTypes.INTEGER,
-            allowNull: true,
-            references: {
-                model: 'pokemon',
-                key: 'pokemon_id'
-            }
-        },
-        poke5: {
-            type: DataTypes.INTEGER,
-            allowNull: true,
-            references: {
-                model: 'pokemon',
-                key: 'pokemon_id'
-            }
-        },
-        poke6: {
-            type: DataTypes.INTEGER,
-            allowNull: true,
-            references: {
+            references:{
                 model: 'pokemon',
                 key: 'pokemon_id'
             }
