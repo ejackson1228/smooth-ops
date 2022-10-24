@@ -10,5 +10,6 @@ router.use('/', homeRoutes);
 router.use('/profile',dashboardRoutes);
 router.use('/api', apiRoutes);
 
+
 module.exports = router;
 
