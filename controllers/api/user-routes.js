@@ -1,12 +1,20 @@
 const router = require("express").Router();
 const { User, Post, Comment, Pokemon, Vote} = require("../../models")
 
+//FOR TESTING ONLY
+router.get("/",(req,res)=>{
+  User.findAll({include:[Post,Pokemon]}).then(function(userData){res.json(userData)})
+});
+//Remove before deployment
 
-//Create New User
+
+
+
+//Create New User Tested in imsomnia it works 
 router.post('/',async (req,res)=>{
     try {
         const userData = await User.create({
-            trainer_name: req.body.trainer,
+            trainer_name: req.body.trainer_name,
             email: req.body.email,
             password: req.body.password,  
         });
@@ -20,8 +28,8 @@ router.post('/',async (req,res)=>{
         });
 
     } catch (error) {
-        console.log(err);
-        res.status(500).json(err);
+        console.log(error);
+        res.status(500).json(error);
     }
 
 });
@@ -52,7 +60,9 @@ router.post('/login', async (req, res) => {
       }
   
       req.session.save(() => {
-        req.session.loggedIn = true;
+        req.session.user_id=dbUserData.id;
+        req.session.trainer_name=dbUserData.trainer_name;
+        req.session.logged_in = true;
   
         res
           .status(200)
