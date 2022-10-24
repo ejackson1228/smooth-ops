@@ -19,13 +19,48 @@ Team.init(
                 key: 'id'
             }
         },
-        pokemon_id:{
+        poke_1:{
             type: DataTypes.INTEGER,
             references:{
                 model: 'pokemon',
                 key: 'pokemon_id'
             }
-        }
+        },
+        poke_2:{
+            type: DataTypes.INTEGER,
+            references:{
+                model: 'pokemon',
+                key: 'pokemon_id'
+            }
+        },
+        poke_3:{
+            type: DataTypes.INTEGER,
+            references:{
+                model: 'pokemon',
+                key: 'pokemon_id'
+            }
+        },
+        poke_4:{
+            type: DataTypes.INTEGER,
+            references:{
+                model: 'pokemon',
+                key: 'pokemon_id'
+            }
+        },
+        poke_5:{
+            type: DataTypes.INTEGER,
+            references:{
+                model: 'pokemon',
+                key: 'pokemon_id'
+            }
+        },
+        poke_6:{
+            type: DataTypes.INTEGER,
+            references:{
+                model: 'pokemon',
+                key: 'pokemon_id'
+            }
+        },
     },
     {
         sequelize,

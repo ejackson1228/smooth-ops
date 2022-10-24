@@ -115,4 +115,4 @@ Vote.belongsTo(User, {
     foreignKey: 'user_id'
 });
 
-module.exports = { User, Pokemon, Team, Post };
+module.exports = { User, Pokemon, Team, Post, Vote, Comment };
