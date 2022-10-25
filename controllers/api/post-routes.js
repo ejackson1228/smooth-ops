@@ -22,7 +22,7 @@ router.post('/'), (req, res) => {
     Post.create({
         title: req.body.title,
         description: req.body.description,
-        pokemon_team: /* input reference to pokemon team creation */ ,
+        // pokemon_team: /* input reference to pokemon team creation */ ,
         user_id: req.session.user_id
     })
     .then(dbPostData => res.json(dbPostData))
