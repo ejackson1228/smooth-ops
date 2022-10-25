@@ -69,8 +69,6 @@ Post.belongsTo(User, {
     foreignKey: 'user_id'
 });
 
-
-
 // Comment relationshps
 Comment.belongsTo(Post, {
     foreignKey: 'post_id'
@@ -89,6 +87,8 @@ Vote.belongsTo(Post, {
 Vote.belongsTo(User, {
     foreignKey: 'user_id'
 });
+
+
 // User Post relationships One to Many
 //User Team Relationship One to Many
 // User.hasMany(Team, {
