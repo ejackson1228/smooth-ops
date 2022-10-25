@@ -22,7 +22,6 @@ router.post('/'), (req, res) => {
     Post.create({
         title: req.body.title,
         description: req.body.description,
-        // pokemon_team: /* input reference to pokemon team creation */
         user_id: req.session.user_id
     })
     .then(dbPostData => res.json(dbPostData))
@@ -30,6 +29,8 @@ router.post('/'), (req, res) => {
         console.log(err);
         res.status(500).json(err);
     })
+    // TODO: if statement for pokemon team info. will allow users to create posts with or without pokemon team 
+    
 };
 
 //get all posts 
@@ -82,8 +83,7 @@ router.get('/:id', (req, res) => {
             'id',
             'title',
             'description',
-            'created_at',
-            'pokemon_team'
+            'created_at'
             // [sequelize.literal('SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id'), 'vote_count'] //icebox votes for now 
         ],
         include: [
@@ -175,7 +175,7 @@ router.delete('/:id', (req, res) => {
 });
 
 
-// TODO: add route to upvote on a post
+// TODO: add route to upvote on a post /// ICEBOXED
 
 
 
