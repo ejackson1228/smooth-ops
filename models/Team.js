@@ -13,54 +13,62 @@ Team.init(
         },
         user_id: {
             type: DataTypes.INTEGER,
-            // allowNull: false,
+            allowNull: false,
             references: {
                 model: 'user',
                 key: 'id'
             }
-        },
-        poke_1:{
-            type: DataTypes.INTEGER,
-            references:{
-                model: 'pokemon',
-                key: 'pokemon_id'
-            }
-        },
-        poke_2:{
-            type: DataTypes.INTEGER,
-            references:{
-                model: 'pokemon',
-                key: 'pokemon_id'
-            }
-        },
-        poke_3:{
-            type: DataTypes.INTEGER,
-            references:{
-                model: 'pokemon',
-                key: 'pokemon_id'
-            }
-        },
-        poke_4:{
-            type: DataTypes.INTEGER,
-            references:{
-                model: 'pokemon',
-                key: 'pokemon_id'
-            }
-        },
-        poke_5:{
-            type: DataTypes.INTEGER,
-            references:{
-                model: 'pokemon',
-                key: 'pokemon_id'
-            }
-        },
-        poke_6:{
-            type: DataTypes.INTEGER,
-            references:{
-                model: 'pokemon',
-                key: 'pokemon_id'
-            }
-        },
+        }
+        // post_id: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: false,
+        //     references: {
+        //         model: 'post',
+        //         key: 'id'
+        //     }
+        // }
+        // poke_1:{
+        //     type: DataTypes.INTEGER,
+        //     references:{
+        //         model: 'pokemon',
+        //         key: 'pokemon_id'
+        //     }
+        // },
+        // poke_2:{
+        //     type: DataTypes.INTEGER,
+        //     references:{
+        //         model: 'pokemon',
+        //         key: 'pokemon_id'
+        //     }
+        // },
+        // poke_3:{
+        //     type: DataTypes.INTEGER,
+        //     references:{
+        //         model: 'pokemon',
+        //         key: 'pokemon_id'
+        //     }
+        // },
+        // poke_4:{
+        //     type: DataTypes.INTEGER,
+        //     references:{
+        //         model: 'pokemon',
+        //         key: 'pokemon_id'
+        //     }
+        // },
+        // poke_5:{
+        //     type: DataTypes.INTEGER,
+        //     references:{
+        //         model: 'pokemon',
+        //         key: 'pokemon_id'
+        //     }
+        // },
+        // poke_6:{
+        //     type: DataTypes.INTEGER,
+        //     references:{
+        //         model: 'pokemon',
+        //         key: 'pokemon_id'
+        //     }
+        // },
     },
     {
         sequelize,
