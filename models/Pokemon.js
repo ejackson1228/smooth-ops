@@ -5,7 +5,7 @@ class Pokemon extends Model {}
 
 Pokemon.init(
     {
-        pokemon_id: {
+        id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
