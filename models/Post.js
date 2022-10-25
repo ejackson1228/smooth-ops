@@ -40,18 +40,18 @@ Post.init(
             allowNull: false
         },
         description: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
         },
         pokemon_team: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'pokemon',
+                model: 'team',
                 key: 'id'
             }
         },
         user_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            // allowNull: false,
             references: {
                 model: 'user',
                 key: 'id'
