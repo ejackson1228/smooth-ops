@@ -105,6 +105,57 @@ router.get('/teams', async (req,res) => {
     })
 });
 
+router.get('/posts/:id', (req, res) => {
+    Post.findOne({
+        where: {
+            id: req.params.id
+        },
+        attributes: ['id', 'title', 'description', 'user_id', 'created_at'],
+        include: [
+            {
+                model: Team,
+                include: [
+                    {
+                        model: Pokemon,
+                        through: PokeTeam
+                    }
+                ]
+            },
+            {
+                model: Comment,
+                attributes: ['id', 'text', 'user_id', 'post_id', 'created_at'],
+                include: [
+                    {
+                        model: User,
+                        attributes: ['trainer_name']
+                    }
+                ]
+            },
+            {
+                model: User,
+                attributes: ['trainer_name']
+            }
+        ]
+    })
+    .then(dbPostData => {
+        if (!dbPostData) {
+            res.status(404).json({ message: 'No Post found with that ID.'})
+            return;
+        }
+
+        const post = dbPostData.get({ plain: true });
+
+        res.render('single-post', {
+            post,
+            loggedIn: req.session.loggedIn
+        });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    })
+});
+
 
 module.exports = router;
 
