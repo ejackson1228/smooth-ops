@@ -2,9 +2,9 @@ const router = require("express").Router();
 const { User, Post, Comment, Pokemon, Vote} = require("../../models")
 
 //FOR TESTING ONLY
-router.get("/",(req,res)=>{
-  User.findAll({include:[Post,Pokemon]}).then(function(userData){res.json(userData)})
-});
+// router.get("/",(req,res)=>{
+//   User.findAll({include:[Post,Pokemon]}).then(function(userData){res.json(userData)})
+// });
 //Remove before deployment
 
 
