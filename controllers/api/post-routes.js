@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const sequelize = require("../../config/connection");
-const { Post, Team, Pokemon, User } = require("../../models");
+const { Post, Team, Pokemon, User, Comment, PokeTeam } = require("../../models");
 
 //only test in imsomnia until front end is set up
 router.post('/', async (req,res) => {
@@ -88,7 +88,7 @@ router.get('/:id', (req, res) => {
             'description',
             'created_at',
             'pokemon_team',
-            [sequelize.literal('SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id'), 'vote_count'] //total votes on post
+            // [sequelize.literal('SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id'), 'vote_count'] //total votes on post
         ],
         include: [
             {  //include team with pokemon under column "poke_team"
@@ -98,7 +98,7 @@ router.get('/:id', (req, res) => {
                 ],
                 include: {
                     model: Pokemon, //sql literal to try and include pokemon in "team" include
-                    attributes: [sequelize.literal('(SELECT * FROM pokemon WHERE pokemon.pokemon_id = poke_1, poke_2, poke_3, poke_4, poke_5, poke_6'), 'poke_team']
+                    through: PokeTeam
                 }
             },
             {
