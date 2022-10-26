@@ -23,6 +23,11 @@
 
   .navbar-brand {
     font-family: 'Carter One', cursive;
+    padding: 15px;
+  }
+
+  .nav-link {
+    font-family: 'Ubuntu', sans-serif;
   }
   
   button {
