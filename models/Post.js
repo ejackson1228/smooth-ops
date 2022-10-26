@@ -42,13 +42,13 @@ Post.init(
         description: {
             type: DataTypes.STRING,
         },
-        pokemon_team: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'team',
-                key: 'id'
-            }
-        },
+        // pokemon_team: {
+        //     type: DataTypes.INTEGER,
+        //     references: {
+        //         model: 'team',
+        //         key: 'id'
+        //     }
+        // },
         user_id: {
             type: DataTypes.INTEGER,
             // allowNull: false,

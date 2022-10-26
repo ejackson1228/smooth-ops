@@ -9,7 +9,7 @@ const PokeTeam = require('./PokeTeam');
 
 Pokemon.belongsToMany(Team,{
     foreignKey: 'pokemon_id',
-    through: PokeTeam
+    through: 'poketeam'
 });
 
 User.hasMany(Post, {
@@ -40,13 +40,16 @@ User.hasMany(Team, {
 
 Team.belongsToMany(Pokemon, {
     foreignKey: 'team_id',
-    through: PokeTeam
+    through: 'poketeam'
+});
+
+Team.belongsTo(Post, {
+    foreignKey: 'post_id'
 });
 
 Team.belongsTo(User, {
     foreignKey: 'user_id'
-});
-
+})
 // Post relationships
 
 Post.belongsToMany(User, {
@@ -69,7 +72,9 @@ Post.belongsTo(User, {
     foreignKey: 'user_id'
 });
 
-
+Post.hasOne(Team, {
+    foreignKey: 'post_id'
+})
 
 // Comment relationshps
 Comment.belongsTo(Post, {
@@ -89,6 +94,8 @@ Vote.belongsTo(Post, {
 Vote.belongsTo(User, {
     foreignKey: 'user_id'
 });
+
+
 // User Post relationships One to Many
 //User Team Relationship One to Many
 // User.hasMany(Team, {

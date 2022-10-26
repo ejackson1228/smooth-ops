@@ -17,15 +17,17 @@ const seedAll = async () => {
     
     await seedPokemon();
     console.log('\n----- POKEMON SEEDED -----\n');
+
+    await seedPosts();
+    console.log('\n----- POSTS SEEDED -----\n');
     
-    await seedTeams();;
+    await seedTeams();
     console.log('\n----- TEAMS SEEDED -----\n');
 
     await seedPokeTeam();
     console.log('\n----- POKETEAMS SEEDED -----\n');
     
-    await seedPosts();
-    console.log('\n----- POSTS SEEDED -----\n');
+    
 
     await seedComments();
     console.log('\n----- COMMENTS SEEDED -----\n');
