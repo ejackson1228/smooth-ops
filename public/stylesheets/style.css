@@ -20,6 +20,10 @@
   a:hover {
     color: #3486eb;
   }
+
+  .navbar-brand {
+    font-family: 'Carter One', cursive;
+  }
   
   button {
     background-color: #225ca3;
