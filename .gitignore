@@ -107,4 +107,3 @@ dist
 .tern-port
 
 # preventing the seeds directory being uploaded into remote repo
-/seeds

@@ -4,43 +4,18 @@ const Team = require('./Team');
 const Post = require('./Post');
 const Comment = require('./Comment');
 const Vote = require('./Vote');
+const PokeTeam = require('./PokeTeam');
 
-// User Post relationships One to Many
+
+Pokemon.belongsToMany(Team,{
+    foreignKey: 'pokemon_id',
+    through: PokeTeam
+});
+
 User.hasMany(Post, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE'
 });
-
-Post.belongsTo(User, {
-    foreignKey: 'user_id'
-});
-
-//User Team Relationship One to Many
-User.hasMany(Team, {
-    foreignKey: 'user_id',
-    onDelete: 'CASCADE'
-});
-Team.belongsTo(User,{
-    foreignKey: 'user_id'
-});
-
-//Team will have Poke Id and User Id
-User.belongsToMany(Pokemon,{
-    through: Team
-});
-Pokemon.belongsToMany(User,{
-    through: Team
-});
-
-// Team to Pokemon Relationship
-Team.hasMany(Pokemon,{
-    foreignKey: 'team_id',
-    onDelete: 'CASCADE'
-});
-Pokemon.belongsTo(Team,{
-    foreignKey: 'team_id'
-});
-
 
 User.belongsToMany(Post, {
     through: Vote,
@@ -58,19 +33,18 @@ User.hasMany(Vote, {
     foreignKey: 'user_id',
 });
 
-// Pokemon Relationships
-// Commented this out because it breaks the code
-// Pokemon.belongsToMany(Team, {
-//     foreignKey: 'pokemon_id'
-// });
+User.hasMany(Team, {
+    foreignKey: 'user_id'
+})
 
-// Team relationships
-Team.belongsTo(Post, {
-    foreignKey: 'post_id'
+
+Team.belongsToMany(Pokemon, {
+    foreignKey: 'team_id',
+    through: PokeTeam
 });
 
-Team.hasMany(Pokemon, {
-    foreignKey: 'pokemon_id'
+Team.belongsTo(User, {
+    foreignKey: 'user_id'
 });
 
 // Post relationships
@@ -91,10 +65,9 @@ Post.hasMany(Comment, {
     onDelete: 'cascade'
 });
 
-Post.hasOne(Team, {  //post has one poke-team
-    foreignKey: 'pokemon_team'
+Post.belongsTo(User, {
+    foreignKey: 'user_id'
 });
-
 
 // Comment relationshps
 Comment.belongsTo(Post, {
@@ -115,4 +88,44 @@ Vote.belongsTo(User, {
     foreignKey: 'user_id'
 });
 
-module.exports = { User, Pokemon, Team, Post, Vote, Comment };
+
+// User Post relationships One to Many
+//User Team Relationship One to Many
+// User.hasMany(Team, {
+//     foreignKey: 'user_id',
+//     onDelete: 'CASCADE'
+// });
+
+// Team.belongsTo(User,{
+//     foreignKey: 'user_id'
+// });
+
+//Team will have Poke Id and User Id
+// User.belongsToMany(Pokemon,{
+//     through: Team
+// });
+// Pokemon.belongsToMany(User,{
+//     through: Team
+// });
+
+// Team to Pokemon Relationship
+// Team.hasMany(Pokemon,{
+//     foreignKey: 'team_id',
+//     onDelete: 'CASCADE'
+// });
+// Post.hasOne(Team, {  //post has one poke-team
+//     foreignKey: 'pokemon_team'
+// });
+// Pokemon Relationships
+// Commented this out because it breaks the code
+// Pokemon.belongsToMany(Team, {
+//     foreignKey: 'pokemon_id',
+//     through: PokeTeam
+// });
+
+// Team relationships
+// Team.belongsTo(Post, {
+//     foreignKey: 'post_id'
+// });
+
+module.exports = { User, Pokemon, Team, Post, Vote, Comment, PokeTeam };

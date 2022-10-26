@@ -23,7 +23,7 @@ const voteData = [
     },
     {
         user_id: 1,
-        post_id: 2
+        post_id: 4
     }
 ];
 
