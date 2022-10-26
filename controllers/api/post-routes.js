@@ -30,7 +30,6 @@ router.post('/'), (req, res) => {
         res.status(500).json(err);
     })
     // TODO: if statement for pokemon team info. will allow users to create posts with or without pokemon team 
-    
 };
 
 //get all posts 
