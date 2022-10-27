@@ -8,8 +8,6 @@ const { User, Post, Comment, Pokemon, Vote} = require("../../models")
 //Remove before deployment
 
 
-
-
 //Create New User Tested in imsomnia it works 
 router.post('/',async (req,res)=>{
     try {

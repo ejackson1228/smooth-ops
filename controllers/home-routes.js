@@ -46,7 +46,7 @@ router.get('/', (req,res) => {
         console.log(err);
         res.status(500).json(err);
     })
-});
+}); 
 
 router.get('/login', async (req,res) => {
     res.render("login")
@@ -55,6 +55,10 @@ router.get('/login', async (req,res) => {
 router.get('/signup', async (req,res) => {
     res.render("signup")
 });
+
+router.get('/logout', (req, res) => {
+
+})
 
 
 //FETCH call to PokeApi  will be done on front end?
@@ -155,6 +159,7 @@ router.get('/posts/:id', (req, res) => {
         res.status(500).json(err);
     })
 });
+
 
 
 module.exports = router;

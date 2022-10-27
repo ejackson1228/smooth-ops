@@ -32,6 +32,7 @@ router.post('/'), (req, res) => {
     // TODO: if statement for pokemon team info. will allow users to create posts with or without pokemon team 
     //TODO: add capability to create new team/poketeam from create post 
     // this can either be done by expanding on this route or possibly creating a new route and linking both routes to the create post page that will be created
+
 };
 
 //get all posts 
