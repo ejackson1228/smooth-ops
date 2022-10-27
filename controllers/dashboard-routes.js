@@ -3,7 +3,7 @@ const { User, Post, Comment, Pokemon, Vote, Team, PokeTeam} = require("../models
 const withAuth = require("../utils/auth");
 
 
-//render homepage with logged in user's posts
+//render dashboard with logged in user's posts
 router.get('/', withAuth, async (req,res)=>{
     Post.findAll({
         where: {
