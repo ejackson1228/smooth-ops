@@ -14,7 +14,7 @@
       <div class="pokeballs-div">
         <div class="pokeball-1"> <!-- this div marks the point to create a new pokeball -->
           <div class="poke-dropdown">
-            <button onclick="dropdownFunction()" class="dropdownbtn">Select Pokemon</button>
+            <button id="open-dropdown-btn" onclick="dropdownFunction()" class="dropdownbtn">Select Pokemon</button>
             <div id="myDropdown" class="dropdown-content">
               <input type="text" placeholder="Search..." id="poke-input" onkeyup="filterFunction()">
               {{#each pokemon}}
@@ -48,6 +48,6 @@
 </section>
 {{/if}}
 
-<script src="/javascript/add-post.js"></script>
-<script src="/javascript/filtered-dropdown.js"></script>
+<script src="/js/add-post.js"></script>
+<script src="/js/filtered-dropdown.js"></script>
 

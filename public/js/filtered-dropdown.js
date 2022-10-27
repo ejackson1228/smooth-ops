@@ -1,4 +1,5 @@
-function dropdownFunction() {
+function dropdownFunction(event) {
+    event.preventDefault();
     document.getElementById("myDropdown").classList.toggle("show");
 }
 
@@ -18,3 +19,5 @@ function filterFunction() {
         }
     }
 }
+
+document.getElementById("open-dropdown-btn").addEventListener('click', dropdownFunction);
