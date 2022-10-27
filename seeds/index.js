@@ -1,12 +1,12 @@
 const seedUsers = require('./seed-users');
 const seedPokemon = require('./pokemon-seeds');
+const seedTeams = require('./team-seeds');
+const seedPokeTeam  = require('./seed-poketeams');
 const seedPosts = require('./seed-posts');
 const seedComments = require('./comment-seeds');
-const seedVotes = require('./vote-seeds');
-const seedPokeTeam  = require('./seed-poketeams');
+// const seedVotes = require('./vote-seeds');
 
 const sequelize = require('../config/connection');
-const seedTeams = require('./team-seeds');
 
 const seedAll = async () => {
     await sequelize.sync({ force: true });
