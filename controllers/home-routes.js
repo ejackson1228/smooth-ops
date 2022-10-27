@@ -56,10 +56,6 @@ router.get('/signup', async (req,res) => {
     res.render("signup")
 });
 
-router.get('/logout', (req, res) => {
-
-})
-
 
 //FETCH call to PokeApi  will be done on front end?
 // fetch from pokemon table for options, rendering the pokemon sepcific data won't come until we have to display a team on a post

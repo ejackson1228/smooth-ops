@@ -7,7 +7,7 @@ const dashboardRoutes = require('./dashboard-routes');
 
 router.use('/', homeRoutes);
 //for signed in users
-router.use('/profile',dashboardRoutes);
+router.use('/dashboard',dashboardRoutes);
 router.use('/api', apiRoutes);
 
 
