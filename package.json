@@ -10,7 +10,8 @@
     "jest": "^29.2.1",
     "mysql2": "^2.3.3",
     "node": "^18.11.0",
-    "sequelize": "^6.25.2"
+    "sequelize": "^6.25.2",
+    "uuid": "^9.0.0"
   },
   "name": "smooth-ops",
   "description": "",

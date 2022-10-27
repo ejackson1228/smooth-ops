@@ -57,10 +57,10 @@ router.get('/edit/:id', withAuth, (req, res) => {
         include: [
             {
                 model: Team,
-                include: {
+                include: [{
                     model: Pokemon,
                     through: PokeTeam
-                }
+                }]
             },
             {
                 model: Comment,
@@ -88,6 +88,24 @@ router.get('/edit/:id', withAuth, (req, res) => {
     .catch(err => {
         console.log(err);
         re.status(500).json(err);
+    })
+});
+
+router.get('/', async (req,res) => {
+    Pokemon.findAll({
+        attributes: ['name', 'url'],
+        order: ['name']
+    })
+    .then(dbPokemonData => {
+        const pokemon = dbPokemonData.map(pokemon  => pokemon.get({ plain: true }))
+        res.render('dashboard', { // <<<<<<< render to dashboard to populate selection modal for post creation/team building 
+            pokemon, // Render Pokemon Selector Modal ^
+            loggedIn: req.session.loggedIn
+        })
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
     })
 });
 
