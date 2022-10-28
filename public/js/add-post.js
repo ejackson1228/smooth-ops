@@ -9,7 +9,7 @@ async function newFormHandler(e) {
     const post_description = document.querySelector('input[name="post-description"]').value.trim();
 
     
-
+    //grabbing id's from selected index in select pokemon form 
     const pokemon1 = document.querySelector('#pokemon-1').options[document.querySelector('#pokemon-1').selectedIndex].id;
     const pokemon2 = document.querySelector('#pokemon-2').options[document.querySelector('#pokemon-2').selectedIndex].id;
     const pokemon3 = document.querySelector('#pokemon-3').options[document.querySelector('#pokemon-3').selectedIndex].id;
@@ -17,7 +17,7 @@ async function newFormHandler(e) {
     const pokemon5 = document.querySelector('#pokemon-5').options[document.querySelector('#pokemon-5').selectedIndex].id;
     const pokemon6 = document.querySelector('#pokemon-6').options[document.querySelector('#pokemon-6').selectedIndex].id;
 
-    const pokemonSelection = [ // need to grab the id's here to populate a poketeam based on id's
+    const pokemonSelection = [ // need to grab the id's here^^ to populate a poketeam based on id's
       pokemon1,
       pokemon2,
       pokemon3,
