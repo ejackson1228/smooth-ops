@@ -1,5 +1,7 @@
 function dropdownFunction(event) {
+    // prevent page from refreshing onclick
     event.preventDefault();
+    // grab dropdown element and show the search input when clicked
     document.getElementById("myDropdown").classList.toggle("show");
 }
 
