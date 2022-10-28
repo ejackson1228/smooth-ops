@@ -1,24 +1,38 @@
 * {
     box-sizing: border-box;
   }
+
+  :root {
+    --white: white;
+    --navy: #00264d;
+    --red: #cf0808;
+  }
   
   body, html {
     height: 100%;
     padding: 0;
     margin: 0;
-    font-family: sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     color: #333;
+  }
+
+  h1, h2 {
+    font-family: 'Carter One', cursive;
+  }
+
+  p {
+    align-items: center;
   }
   
   a {
     text-decoration: none;
-    color: #225ca3;
+    color: var(--red);
     font-weight: bold;
     transition: color .1s;
   }
   
   a:hover {
-    color: #3486eb;
+    color: var(--red);
   }
 
   .navbar-brand {
@@ -31,7 +45,7 @@
   }
   
   button {
-    background-color: #225ca3;
+    background-color: var(--red);
     border: 0;
     padding: 1%;
     color: white;
@@ -42,7 +56,7 @@
   }
   
   button:hover {
-    background-color: #3486eb;
+    background-color: var(--red);
   }
   
   .post-list {
@@ -84,7 +98,6 @@
   }
   
   header {
-    border-bottom: 1px solid #ccc;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -99,6 +112,16 @@
     flex: 1;
     padding: 2% 4%;
   }
+
+  .btn {
+    color: var(--white);
+    background-color: var(--red);
+    border: none;
+  }
+
+  .btn:hover {
+    background-color: #e41d1d;
+  }
   
   .btn-no-style {
     background: none;
@@ -106,7 +129,7 @@
     padding: 0;
     cursor: pointer;
     text-decoration: none;
-    color: #225ca3;
+    color: var(--red);
     font-size: 100%;
     font-weight: bold;
     transition: color .1s;
@@ -115,15 +138,15 @@
   
   .btn-no-style:hover {
     background: none;
-    color: #3486eb;
+    color: var(--red);
   }
   
   .delete-post-btn {
-    background-color: #d41414;
+    background-color: var(--red);
   }
   
   .delete-post-btn:hover {
-    background-color: #ff643d;
+    background-color: #e41d1d;
   }
   
   .post {
@@ -178,17 +201,19 @@
     margin-bottom: 5%;
   }
   
-  footer {
-    border-top: 1px solid #ccc;
+  #footer {
+    background-color: var(--navy);
+    height: 100px;
+    width: 100%;
     display: flex;
     justify-content: center;
-    padding: 1%;
-    font-size: 110%;
+    margin: 0;
+    padding: 2%;
   }
 
   .dropdownbtn {
-    background-color: #04aa6d;
-    color: white;
+    background-color: var(--red);
+    color: var(--white);
     padding: 16px;
     font-size: 16px;
     border: none;
@@ -196,12 +221,12 @@
   }
 
   .dropdownbtn:hover, .dropdownbtn:focus  {
-    background-color: #3e8e41;
+    background-color: var(--red);
   }
 
 #poke-input {
   box-sizing: border-box;
-  background-image: url('searchicon.png');
+  /* background-image: url('navbaricon.png'); */
   background-position: 14px 12px;
   background-repeat: no-repeat;
   font-size: 16px;

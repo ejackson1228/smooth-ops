@@ -29,13 +29,13 @@
               <li class="nav-item">
                 <a class="nav-link" href="/dashboard">Dashboard</a>
               </li>
-            {{!-- login is a link bc it leads to another page --}}
-              <li class="nav-item">
-                <a class="nav-link" href="/login">Login</a>
-              </li>
               {{#if loggedIn}}
               <li class="nav-item">
                 <a class="nav-link" id="logout">Logout</a>
+              </li>
+              {{else}}
+              <li class="nav-item">
+                <a class="nav-link" href="/login">Login</a>
               </li>
               {{/if}}
               <li class="nav-item">
@@ -50,10 +50,19 @@
     <main>
       {{{ body }}}
     </main>
-    <footer class="fixed-bottom">
-      Go catch 'em all!
-      {{!-- add media links / credits --}}
-    </footer>
+    <div id="footer" class="container-fluid text-white mx-0" style="background-color: #00264d;">
+      <div class="row no-gutters">
+        <h2 class="text-center" style="font-size: 20px;">Go catch 'em all!</h2>
+        <div class="credits text-center">
+          <p>Made by the Smooth Operators:</p>
+          <div class="container credit-btn">
+            <div class="row">
+              {{!-- TODO: import credit buttons and add names --}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   {{#if loggedIn}}
   <script src="/js/logout.js"></script>
