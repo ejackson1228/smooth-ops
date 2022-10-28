@@ -2,24 +2,10 @@ const router = require("express").Router();
 const sequelize = require("../../config/connection");
 const { Post, Team, Pokemon, User, PokeTeam, Comment } = require("../../models");
 
-//only test in imsomnia until front end is set up
-// router.post('/', async (req,res) => {
-//     try {
-//         const postData = Post.create({
-//             title: req.body.title,
-//             description: req.body.description,
-//             user_id: req.session.user_id
-//         });
-//         res.json(postData);
-        
-//     } catch (error) {
-//         res.json(error);
-//     }
-// });
-
 //create new post 
 router.post('/'), (req, res) => {
-    Post.create({
+    Post.create({ //consider generating an id with an uuid for post and team to fill out the post_id for team and the team_id for poketeam
+        id: req.body.id, //manually generate id by uuid
         title: req.body.title,
         description: req.body.description,
         user_id: req.session.user_id
@@ -28,11 +14,7 @@ router.post('/'), (req, res) => {
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
-    })
-    // TODO: if statement for pokemon team info. will allow users to create posts with or without pokemon team 
-    //TODO: add capability to create new team/poketeam from create post 
-    // this can either be done by expanding on this route or possibly creating a new route and linking both routes to the create post page that will be created
-
+    });  
 };
 
 //get all posts 
