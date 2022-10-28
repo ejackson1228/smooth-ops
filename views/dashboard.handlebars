@@ -1,3 +1,4 @@
+
 <section>
   <h2>Create New Post</h2>
 
@@ -13,15 +14,52 @@
     <div class="pokemon-team">
       <div class="pokeballs-div">
         <div class="pokeball-1"> <!-- this div marks the point to create a new pokeball -->
-          <div class="poke-dropdown">
-            <button id="open-dropdown-btn" onclick="dropdownFunction()" class="dropdownbtn">Select Pokemon</button>
-            <div id="myDropdown" class="dropdown-content">
-              <input type="text" placeholder="Search..." id="poke-input" onkeyup="filterFunction()">
+            <select id="pokemon-1" class="dropdown-content">
+              <option value="none">None</option>
               {{#each pokemon}}
-              <a>{{pokemon.name}}</a> <!-- fill out dropdown options with pokemon -->
+              <option value="{{this.name}}" id="{{this.id}}">{{this.name}}</option> <!-- fill out dropdown options with pokemon -->
               {{/each}}
-            </div>
-          </div>
+            </select>
+        </div>
+        <div class="pokeball-2"> <!-- this div marks the point to create a new pokeball -->
+            <select id="pokemon-2" class="dropdown-content">
+              <option value="none">None</option>
+              {{#each pokemon}}
+              <option value="{{this.name}}" id="{{this.id}}">{{this.name}}</option> <!-- fill out dropdown options with pokemon -->
+              {{/each}}
+            </select>
+        </div>
+        <div class="pokeball-3"> <!-- this div marks the point to create a new pokeball -->
+            <select id="pokemon-3" class="dropdown-content">
+              <option value="none">None</option>
+              {{#each pokemon}}
+              <option value="{{this.name}}" id="{{this.id}}">{{this.name}}</option> <!-- fill out dropdown options with pokemon -->
+              {{/each}}
+            </select>
+        </div>
+        <div class="pokeball-4"> <!-- this div marks the point to create a new pokeball -->
+            <select id="pokemon-4" class="dropdown-content">
+              <option value="none">None</option>
+              {{#each pokemon}}
+              <option value="{{this.name}}" id="{{this.id}}">{{this.name}}</option> <!-- fill out dropdown options with pokemon -->
+              {{/each}}
+            </select>
+        </div>
+        <div class="pokeball-5"> <!-- this div marks the point to create a new pokeball -->
+            <select id="pokemon-5" class="dropdown-content">
+              <option value="none">None</option>
+              {{#each pokemon}}
+              <option value="{{this.name}}" id="{{this.id}}">{{this.name}}</option> <!-- fill out dropdown options with pokemon -->
+              {{/each}}
+            </select>
+        </div>
+        <div class="pokeball-6"> <!-- this div marks the point to create a new pokeball -->
+            <select id="pokemon-6" class="dropdown-content">
+              <option value="none">None</option>
+              {{#each pokemon}}
+              <option value="{{this.name}}" id="{{this.id}}">{{this.name}}</option> <!-- fill out dropdown options with pokemon -->
+              {{/each}}
+            </select>
         </div>
       </div>
       <!-- create 6 inputs inside of 6 pokeballs here -->
@@ -49,5 +87,4 @@
 {{/if}}
 
 <script src="/js/add-post.js"></script>
-<script src="/js/filtered-dropdown.js"></script>
-
+<!-- <script src="/js/filtered-dropdown.js"></script> No longer needed, as we'll be using <select> as the selector of pokemon -->

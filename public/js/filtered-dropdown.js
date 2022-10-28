@@ -4,18 +4,18 @@ function dropdownFunction(event) {
 }
 
 function filterFunction() {
-    var input, filter, ul, li, a, i;
+    var input, filter, ul, li, option, i;
     input = document.getElementById('poke-input');
     filter = input.value.toUpperCase();
     div = document.getElementById('myDropdown');
-    a = div.getElementsByTagName('a');
+    option = div.getElementsByTagName('option');
 
-    for (i=0; i < a.length; i++) {
-        txtValue = a[i].textContent || a[i].innerText;
+    for (i=0; i < option.length; i++) {
+        txtValue = option[i].textContent || option[i].innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            a[i].style.display = "";
+            option[i].style.display = "";
         } else {
-            a[i].style.display = "none";
+            option[i].style.display = "none";
         }
     }
 }
