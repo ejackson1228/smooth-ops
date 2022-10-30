@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     if (req.session) { //check for exisiting session, only allowing logged in users to comment 
         Comment.create({
-            text: req.body.text,
+            text: req.body.comment_text,
             post_id: req.body.post_id,
             user_id: req.session.user_id
         })
