@@ -16,5 +16,10 @@ module.exports = {
         .replace('www.', '')
         .split('/')[0]
         .split('?')[0]
+    },
+    get_sprite_url: url => {
+        const response = fetch(url).then(response => response.json());
+
+        return response.sprites.front_default;
     }
 };
