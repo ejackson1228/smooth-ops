@@ -7,5 +7,5 @@ phone icons
 sparkle pokeball icons
 <a href="https://www.flaticon.com/free-icons/pokemon" title="pokemon icons">Pokemon icons created by Darius Dan - Flaticon</a>
 
-thrown pokeball icon
+thrown pokeball icon and pokeball button
 <a href="https://www.flaticon.com/free-icons/pokemon" title="pokemon icons">Pokemon icons created by Freepik - Flaticon</a>
