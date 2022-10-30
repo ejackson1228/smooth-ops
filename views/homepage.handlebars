@@ -5,7 +5,21 @@
   <hr class="my-4">
   <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
   <p class="lead">
-    <a class="btn btn-primary btn-lg" href="/signup" role="button" >Sign Up </a>
+    <a class="btn btn-primary btn-lg mb-5" href="/signup" role="button">Sign Up </a>
   </p>
 </div>
+</div>
+
+{{!-- TODO: get existing posts to show on homepage --}}
+<div>
+  <h2 class="pt-4">Teams to Beat!</h2>
+    <ol>
+      {{#each posts as |post|}}
+        <li>
+          {{!-- using post-info partial --}}
+          {{> post-info post}}
+          <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+        </li>
+      {{/each}}
+    </ol>
 </div>

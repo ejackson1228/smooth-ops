@@ -3,7 +3,7 @@ const sequelize = require("../../config/connection");
 const { Post, Team, Pokemon, User, PokeTeam, Comment } = require("../../models");
 
 //create new post 
-router.post('/'), (req, res) => {
+router.post('/', (req, res) => {
     Post.create({ //consider generating an id with an uuid for post and team to fill out the post_id for team and the team_id for poketeam
         id: req.body.id, //manually generate id by uuid
         title: req.body.title,
@@ -15,7 +15,7 @@ router.post('/'), (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });  
-};
+});
 
 //get all posts 
 router.get('/', (req, res) => {
