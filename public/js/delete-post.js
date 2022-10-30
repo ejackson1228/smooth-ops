@@ -1,30 +1,21 @@
-async function commentFormHandler(event) {
+// NOT FUNCTIONAL - Error 1451, cannot delete or update a parent row: foreign key constraint fails 
+// (`poke_dream_team_db`.`team`, CONSTRAINT `team_ibfk_2` FOREIGN KEY (`post_id`) REFERENCES `post` (`id`) ON UPDATE CASCADE)'
+async function deleteFormHandler(event) {
     event.preventDefault();
 
-    const comment_text = document.querySelector('textarea[name="comment-body"]').value.trim();
-
-    const post_id = window.location.toString().split('/')[
+    const id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];
 
-    if (comment_text) {
-        const response = await fetch('/api/comments', {
-            method: 'POST',
-            body: JSON.stringify({
-                post_id,
-                comment_text
-            }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
+    const response = await fetch(`/api/posts/${id}`, {
+        method: 'DELETE'
+    });
 
-        if (response.ok) {
-            document.location.reload();
-        } else {
-            alert(response.statusText);
-        }
+    if (response.ok) {
+        document.location.replace('/dashboard');
+    } else {
+        alert(response.statusText);
     }
 }
-
-document.querySelector('.comment-form').addEventListener('submit', commentFormHandler);
+  
+  document.querySelector('.delete-post-btn').addEventListener('click', deleteFormHandler);

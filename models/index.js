@@ -21,12 +21,12 @@ User.belongsToMany(Post, {
     through: Vote,
     as: 'voted_posts',
     foreignKey: 'user_id',
-    onDelete: 'cascade'
+    onDelete: 'CASCADE'
 });
 
 User.hasMany(Comment, {
     foreignKey: 'user_id',
-    onDelete: 'cascade'
+    onDelete: 'CASCADE'
 });
 
 User.hasMany(Vote, {
@@ -44,7 +44,8 @@ Team.belongsToMany(Pokemon, {
 });
 
 Team.belongsTo(Post, {
-    foreignKey: 'post_id'
+    foreignKey: 'post_id',
+    onDelete: 'CASCADE'
 });
 
 Team.belongsTo(User, {
@@ -65,7 +66,7 @@ Post.hasMany(Vote, {
 
 Post.hasMany(Comment, {
     foreignKey: 'post_id',
-    onDelete: 'cascade'
+    onDelete: 'CASCADE'
 });
 
 Post.belongsTo(User, {
@@ -73,7 +74,8 @@ Post.belongsTo(User, {
 });
 
 Post.hasOne(Team, {
-    foreignKey: 'post_id'
+    foreignKey: 'post_id',
+    onDelete: 'CASCADE'
 })
 
 // Comment relationshps
