@@ -1,6 +1,8 @@
 
-<section>
-  <h2>Create New Post</h2>
+<div class="container">
+  <div class="row">
+      <div class="col">
+        <h2>Create New Post</h2>
 
   <form class="new-post-form">
     <div>
@@ -72,21 +74,23 @@
 
 {{!-- create team modal using input/search --}}
 
-{{!-- using this '#if' to only show this if the user has posts --}}
-{{#if posts.length}}
-<section>
-    <h2>Your Posts</h2>
-    <ol>
-        {{#each posts as |post|}}
-        <li>
-            {{!-- using post-info partial --}}
-            {{> post-info post}}
-            <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
-        </li>
-        {{/each}}
-    </ol>
-</section>
-{{/if}}
+      {{!-- using this '#if' to only show this if the user has posts --}}
+      {{#if posts.length}}
+        <div class="col">
+          <h2 class="pt-4">Your Posts</h2>
+          <ol>
+              {{#each posts as |post|}}
+              <li>
+                  {{!-- using post-info partial --}}
+                  {{> post-info post}}
+                  <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+              </li>
+              {{/each}}
+          </ol>
+        </div>
+      {{/if}}
+  </div>
+</div>
 
 <script src="/js/add-post.js"></script>
 <!-- <script src="/js/filtered-dropdown.js"></script> No longer needed, as we'll be using <select> as the selector of pokemon -->

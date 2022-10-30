@@ -1,17 +1,17 @@
 <article>
   <a href="/dashboard"> &larr; Back to dashboard</a>
-  <h2>
+  <h2 class="py-4">
     Edit Post
   </h2>
   <form class="edit-post-form">
     <div>
-      <input name="post-title" type="text" value="{{post.title}}" />
-      {{!-- <span>({{format_url post.post_url}})</span> --}}
+      <input name="post-title" type="text" value="{{post.title}}"/>
     </div>
     <div>
-      {{post.vote_count}} {{format_plural "point" post.vote_count}} by you on {{format_date post.created_at}}
-      |
-      <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
+      <input name="post-description" type="text" id="post-description" value="{{post.description}}"/>
+    </div>
+    <div>
+      <a href="/posts/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
     </div>
     <button type="submit">Save post</button>
     <button type="button" class="delete-post-btn">Delete post</button>
@@ -24,7 +24,7 @@
   </div>
   
   <div>
-    <button type="submit">add comment</button>
+    <button type="submit">Add Comment</button>
   </div>
 </form>
 
