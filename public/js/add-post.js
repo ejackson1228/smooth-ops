@@ -1,5 +1,7 @@
-// import a uuid generator
-const { v4: uuidv4 } = require('uuid');
+const uid = function() {
+  return Date.now() * Math.floor(Math.random()*100);
+}
+
 
 async function newFormHandler(e) {
     e.preventDefault();
@@ -19,69 +21,85 @@ async function newFormHandler(e) {
 
     const pokemonSelection = [ // need to grab the id's here^^ to populate a poketeam based on id's
       pokemon1,
-      pokemon2,
+      pokemon2, 
       pokemon3,
       pokemon4,
       pokemon5,
       pokemon6
     ];
 
-    const pokemonArray = [];
-
-    pokemonSelection.forEach(pokemon => { //filter out pokemon "none" selections. 
-      if (!null || !undefined || !'') { // "none" selections don't have an id and therefore return as an empty string 
-        pokemonArray.push(pokemon);
-      }
-    })
+    const pokemonArray = pokemonSelection.filter(Number);
     
     console.log(post_title, post_description);
     console.log(pokemon1, pokemon2, pokemon3, pokemon4, pokemon5, pokemon6);
     console.log(pokemonArray);
     
-    //const teamID = uuidv4();
-    //const postID = uuidv4();
+    const teamID = uid();
+    const postID = uid();
 
-  //   const fetchAll = async function() {
-  //       fetch(`/api/posts`, {
-  //       method: 'POST',
-  //       body: JSON.stringify({ //add a uuid generator to have id's consistent across all creations
-  //         id: postID,
-  //         title: post_title,
-  //         description: post_description,
-  //         user_id: req.session.user_id
-  //       }),
-  //       headers: {
-  //         'Content-Type': 'application/json'
-  //       }
-  //     })
-  //     .then( fetch('/api/teams', { //create team second, table holds fk to post
-  //       method: 'POST',
-  //       body: JSON.stringify({
-  //         id: teamID ,//input uuid generator
-  //         user_id: req.session.user_id,
-  //         post_id: postID // input variable that makes post id
-  //       }),
-  //       headers: { 'Content-Type': 'application/json' }
-  //     })) //post fetch to create new team 
-  //     .then( pokemonArray.forEach(pokemon => { // create poketeam last, holds fk to team and pokemon
-  //       fetch('/api/poketeams', {
-  //       method: 'POST',
-  //       body: JSON.stringify({
-  //         team_id: teamID,//input uuid variable that creates team_id
-  //         pokemon_id: pokemon.id 
-  //       })
-  //     }) // post fetch to create new poketeam
-  //   }))
+    console.log(teamID);
+    console.log(postID);
+
+
+ 
+
+  async function fetchPostAndTeam () {
+    let postFetch = await fetch('/api/posts', {
+      method: 'post',
+      body: JSON.stringify({
+        id: postID,
+        title: post_title,
+        description: post_description
+      }),
+      headers: { 'Content-Type': 'application/json'}
+    });
+    let postResponse = await postFetch.json()
+
+    let teamFetch = await fetch('/api/teams', {
+      method: 'post',
+      body: JSON.stringify({
+        id: teamID,
+        post_id: postID
+      }),
+      headers: {'Content-Type': 'application/json'}
+    });
+    let teamResponse = await teamFetch.json();
     
-  //   const response = await fetchAll();
-    
-  //   if (response.ok) {
-  //     document.location.replace('/dashboard');
-  //   } else {
-  //     alert(response.statusText);
-  //   }
-  // }
-};
+    console.log(postResponse)
+    console.log(teamResponse)
+  };
+
   
+  const poketeamFetch = async function () {
+    pokemonArray.forEach(pokemon => {
+      fetch('/api/poketeams', {
+        method: 'post',
+        body: JSON.stringify({
+          team_id: teamID,
+          pokemon_id: pokemon
+        }),
+        headers: {'Content-Type': 'application/json'}
+      }).then(response => console.log(response));
+    });
+  };
+
+  const refreshPage = async function() {
+    document.location.replace('/dashboard');
+  }
+
+ const fetchAll = async function()  {
+  await fetchPostAndTeam()
+  console.log('Post and Team Request Sent');
+
+  await poketeamFetch()
+  console.log('Poketeam request sent');
+
+  await refreshPage();
+ };
+  
+ fetchAll();
+
+};  
+
 
 document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);

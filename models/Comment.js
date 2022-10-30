@@ -6,7 +6,7 @@ class Comment extends Model {}
 Comment.init(
     {
         id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.BIGINT,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
@@ -19,7 +19,7 @@ Comment.init(
             }
         },
         user_id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.BIGINT,
             allowNull: false,
             references: {
                 model: 'user',
@@ -28,7 +28,7 @@ Comment.init(
             // onDelete: 'cascade' //if user is deleted, their comments will be deleted as well
         },
         post_id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.BIGINT,
             allowNull: false,
             references: {
                 model: 'post',

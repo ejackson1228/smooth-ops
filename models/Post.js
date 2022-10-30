@@ -30,7 +30,7 @@ class Post extends Model {
 Post.init(
     {
         id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.BIGINT,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
@@ -50,7 +50,7 @@ Post.init(
         //     }
         // },
         user_id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.BIGINT,
             // allowNull: false,
             references: {
                 model: 'user',

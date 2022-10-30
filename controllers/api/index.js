@@ -9,7 +9,7 @@ const poketeamRoutes = require('./poketeam-routes');
 router.use('/users', userRoutes);
 router.use('/posts',postRoutes);
 router.use('/comments', commentRoutes);
-router.use('./teams', teamRoutes);
-router.use('./poketeams', poketeamRoutes);
+router.use('/teams', teamRoutes);
+router.use('/poketeams', poketeamRoutes);
 
 module.exports = router;
