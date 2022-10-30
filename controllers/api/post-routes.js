@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const sequelize = require("../../config/connection");
 const { Post, Team, Pokemon, User, PokeTeam, Comment } = require("../../models");
+const withAuth = require("../../utils/auth");
 
 //create new post 
 router.post('/', (req, res) => {
@@ -112,19 +113,20 @@ router.get('/:id', (req, res) => {
 
 
 //edit post by id 
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
     Post.update(
-    {
-        where: {
-            id: req.params.id
-        },
-    },
     {
 
         title: req.body.title,
         description: req.body.description
     
-    })
+    },
+    {
+        where: {
+            id: req.params.id
+        }
+    }
+    )
     .then(dbPostData => {
         if (!dbPostData) {
             res.status(404).json({ message: 'No post found with that ID.'});
