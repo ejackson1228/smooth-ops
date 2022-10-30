@@ -2,6 +2,16 @@
       <div class="title">
         <a href="/posts/{{id}}" target="_blank">{{title}}</a>
       </div>
+      <div class="description">
+        <p>{{description}}</p>
+      </div>
+      {{#if team.pokemons.length}}
+      <div class="pokemon-team">
+        {{#each team.pokemons}}
+        <img src="{{get_sprite_url this.url}}" alt="sprite of {{this.name}}">
+        {{/each}}
+      </div>
+      {{/if}}
       <div class="meta">
         <a href="/posts/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
       </div>

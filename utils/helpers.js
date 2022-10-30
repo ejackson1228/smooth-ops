@@ -18,8 +18,11 @@ module.exports = {
         .split('?')[0]
     },
     get_sprite_url: url => {
-        const response = fetch(url).then(response => response.json());
-
-        return response.sprites.front_default;
+        fetch(url).then(response => response.json())
+        .then(data => {
+            let pokemonSprite = data.sprites.front_default;
+            console.log(pokemonSprite);
+            return pokemonSprite;
+        })  
     }
 };
