@@ -6,7 +6,7 @@ class PokeTeam extends Model {}
 PokeTeam.init(
     {
         id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.BIGINT,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
@@ -19,7 +19,7 @@ PokeTeam.init(
             }
         },
         team_id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.BIGINT,
             references: {
                 model: 'team',
                 key: 'id'

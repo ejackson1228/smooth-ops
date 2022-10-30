@@ -2,67 +2,7 @@ const router = require("express").Router();
 const { User, Post, Comment, Pokemon, Team, PokeTeam } = require("../models");
 const withAuth = require("../utils/auth");
 
-
-//render dashboard with logged in user's posts
-router.get('/', withAuth, async (req,res)=>{
-    Post.findAll({
-        where: {
-            user_id: req.session.user_id
-        },
-        attributes: ['id', 'title', 'description', 'created_at'],
-        include: [
-            {
-                model: Team,
-                include: [{
-                    model: Pokemon,
-                    through: PokeTeam
-                }]
-            },
-            {
-                model: Comment,
-                attributes: ['id', 'text', 'user_id', 'created_at'],
-                include: [{
-                    model: User,
-                    attributes: ['trainer_name']
-                }]
-            },
-            {
-                model: User,
-                attributes: ['trainer_name']
-            }
-        ]
-    })
-    .then(dbPostData => {
-        const posts = dbPostData.map(post => post.get({ plain: true })); //map each post to display as seperate entity 
-        res.render('dashboard', { 
-            posts,
-            loggedIn: req.session.loggedIn // only render the page if a user is logged in 
-        })
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
-
-
-// render pokemon to homepage 
-    Pokemon.findAll({
-        attributes: ['name', 'url'],
-        order: ['name']
-    })
-    .then(dbPokemonData => {
-        const pokemon = dbPokemonData.map(pokemon  => pokemon.get({ plain: true }))
-        res.render('dashboard', { // <<<<<<< render to dashboard to populate selection modal for post creation/team building 
-            pokemon, // Render Pokemon Selector Modal ^
-            loggedIn: req.session.loggedIn
-        })
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    })
-})
-
+// render user posts and pokemon to dashboard
 router.get('/', withAuth, async (req,res)=>{
     Post.findAll({
         where: {
@@ -178,3 +118,64 @@ router.get('/', async (req,res) => {
 });
 
 module.exports = router;
+
+
+// //render dashboard with logged in user's posts
+// router.get('/', withAuth, async (req,res)=>{
+//     Post.findAll({
+//         where: {
+//             user_id: req.session.user_id
+//         },
+//         attributes: ['id', 'title', 'description', 'created_at'],
+//         include: [
+//             {
+//                 model: Team,
+//                 include: [{
+//                     model: Pokemon,
+//                     through: PokeTeam
+//                 }]
+//             },
+//             {
+//                 model: Comment,
+//                 attributes: ['id', 'text', 'user_id', 'created_at'],
+//                 include: [{
+//                     model: User,
+//                     attributes: ['trainer_name']
+//                 }]
+//             },
+//             {
+//                 model: User,
+//                 attributes: ['trainer_name']
+//             }
+//         ]
+//     })
+//     .then(dbPostData => {
+//         const posts = dbPostData.map(post => post.get({ plain: true })); //map each post to display as seperate entity 
+//         res.render('dashboard', { 
+//             posts,
+//             loggedIn: req.session.loggedIn // only render the page if a user is logged in 
+//         })
+//     })
+//     .catch(err => {
+//         console.log(err);
+//         res.status(500).json(err);
+//     });
+
+
+// // render pokemon to homepage 
+//     Pokemon.findAll({
+//         attributes: ['name', 'url'],
+//         order: ['name']
+//     })
+//     .then(dbPokemonData => {
+//         const pokemon = dbPokemonData.map(pokemon  => pokemon.get({ plain: true }))
+//         res.render('dashboard', { // <<<<<<< render to dashboard to populate selection modal for post creation/team building 
+//             pokemon, // Render Pokemon Selector Modal ^
+//             loggedIn: req.session.loggedIn
+//         })
+//     })
+//     .catch(err => {
+//         console.log(err);
+//         res.status(500).json(err);
+//     })
+// })

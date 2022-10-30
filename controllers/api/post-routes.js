@@ -4,12 +4,14 @@ const { Post, Team, Pokemon, User, PokeTeam, Comment } = require("../../models")
 
 //create new post 
 router.post('/', (req, res) => {
-    Post.create({ //consider generating an id with an uuid for post and team to fill out the post_id for team and the team_id for poketeam
-        id: req.body.id, //manually generate id by uuid
+    Post.create(
+        { 
+        id: req.body.id, 
         title: req.body.title,
         description: req.body.description,
-        user_id: req.session.user_id
-    })
+        user_id: req.session.user_id /* user_id: req.session.user_id */ 
+        }
+    )
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {
         console.log(err);
