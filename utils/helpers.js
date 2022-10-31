@@ -17,12 +17,7 @@ module.exports = {
         .split('/')[0]
         .split('?')[0]
     },
-    get_sprite_url: url => {
-        fetch(url).then(response => response.json())
-        .then(data => {
-            let pokemonSprite = data.sprites.front_default;
-            console.log(pokemonSprite);
-            return pokemonSprite;
-        })  
+    get_sprite_url: id => {
+        return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
     }
 };

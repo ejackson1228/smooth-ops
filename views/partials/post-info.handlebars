@@ -8,7 +8,7 @@
       {{#if team.pokemons.length}}
       <div class="pokemon-team">
         {{#each team.pokemons}}
-        <img src="{{get_sprite_url this.url}}" alt="sprite of {{this.name}}">
+        <img src="{{get_sprite_url this.id}}" alt="sprite of {{this.name}}">
         {{/each}}
       </div>
       {{/if}}
