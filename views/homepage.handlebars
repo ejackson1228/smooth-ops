@@ -1,0 +1,26 @@
+{{!-- Homepage Hero --}}
+<div>
+<div class="jumbotron mx-auto">
+  <h1 class="display-4">Welcome Trainers!</h1>
+  <p class="lead">Build your pokemon dream team!</p>
+  <hr class="my-4">
+  <p class="pr-5">Operation Pokedex was made for Pokemon enthusiasts to create their six-pokemon lineup and share their dream team with others. View the list of posts below, or sign up to create your very own fantasy pokemon team!</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg mb-5" href="/signup" role="button">Sign Up </a>
+  </p>
+</div>
+</div>
+
+{{!-- List of posts --}}
+<div>
+  <h2 class="pt-4">Teams to Beat!</h2>
+    <ol>
+      {{#each posts as |post|}}
+        <li>
+          {{!-- using post-info partial --}}
+          {{> post-info post}}
+          <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+        </li>
+      {{/each}}
+    </ol>
+</div>

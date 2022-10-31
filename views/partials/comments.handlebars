@@ -1,0 +1,13 @@
+<div class="comments">
+  {{#each this}}
+  <section class="comment">
+    <div class="meta">
+      {{user.trainer_name}} on {{format_date created_at}}
+      <div class="text">
+        {{!-- having trouble getting the dynamic comment text to render -charlie --}}
+        <p>{{this.text}}</p>
+      </div>
+    </div>
+  </section>
+  {{/each}}
+</div>

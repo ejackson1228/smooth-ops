@@ -1,0 +1,275 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  :root {
+    --white: white;
+    --navy: #00264d;
+    --red: #cf0808;
+  }
+  
+  body, html {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: 'Ubuntu', sans-serif;
+    color: #333;
+  }
+
+  h1, h2 {
+    font-family: 'Carter One', cursive;
+  }
+
+  p {
+    align-items: center;
+  }
+  
+  a {
+    text-decoration: none;
+    color: var(--red);
+    font-weight: bold;
+    transition: color .1s;
+  }
+  
+  a:hover {
+    color: var(--red);
+  }
+
+  .navbar {
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 15px;
+  }
+
+  .navbar-brand {
+    font-family: 'Carter One', cursive;
+    font-size: 23px;
+    padding: 15px;
+  }
+
+  .nav-link {
+    font-family: 'Ubuntu', sans-serif;
+  }
+  
+  button {
+    background-color: var(--red);
+    border: 0;
+    padding: 1%;
+    color: white;
+    font-weight: bold;
+    transition: background-color .1s;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background-color: var(--red);
+  }
+  
+  .post-list {
+    margin: 0;
+    padding: 0;
+  }
+
+  input[type="text"] {
+    margin: 5px;
+    text-align: left;
+    vertical-align: text-top;
+    word-wrap: break-word;
+  }
+  
+  textarea, input {
+    padding: .7%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  textarea:focus, input:focus {
+    outline: none;
+    border: 1px solid --navy;
+  }
+  
+  textarea {
+    min-width: 40%;
+    min-height: 100px;
+  }
+
+  .text {
+    padding: .7%;
+  }
+
+  #post-description {
+    min-width: 70%;
+    min-height: 150px;
+  }
+  
+  form > div {
+    margin-bottom: 2%;
+  }
+  
+  form label {
+    display: block;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5%;
+  }
+  
+  main {
+    flex: 1;
+    padding: 2% 4%;
+  }
+
+  #credit-btn {
+    border: none;
+  }
+
+  .btn {
+    color: var(--white);
+    background-color: var(--red);
+    border: none;
+  }
+
+  .btn:hover {
+    background-color: #e41d1d;
+  }
+  
+  .btn-no-style {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--red);
+    font-size: 100%;
+    font-weight: bold;
+    transition: color .1s;
+    margin-left: 16px;
+  }
+  
+  .btn-no-style:hover {
+    background: none;
+    color: var(--red);
+  }
+  
+  .delete-post-btn {
+    background-color: var(--red);
+  }
+  
+  .delete-post-btn:hover {
+    background-color: #e41d1d;
+  }
+  
+  .post {
+    margin-bottom: 2%;
+    line-height: 150%;
+  }
+  
+  .post .title span {
+    font-style: italic;
+    font-size: 90%;
+    color: #7d7d7d;
+  }
+  
+  .edit-link {
+    display: block;
+    margin: -1.5% 0 2% 0;
+  }
+
+  /* ICEBOXED VOTE BUTTON STYLE */
+  
+  /* .upvote-btn {
+    background-color: #197d0f;
+    transition: background-color .1s;
+  }
+  
+  .upvote-btn:hover {
+    background-color: #1f9c13;
+  } */
+  
+  .comment-form {
+    margin-bottom: 5%;
+  }
+  
+  .comment {
+    padding: 1%;
+  }
+  
+  .comment:nth-child(odd) {
+    background-color: #fde6e3;
+  }
+  
+  .comment .meta {
+    font-size: 90%;
+    margin-bottom: .5%;
+    opacity: .8;
+  }
+  
+  .new-post-form input {
+    width: 300px;
+  }
+  
+  .edit-post-form {
+    margin-bottom: 5%;
+  }
+  
+  #footer {
+    background-color: var(--navy);
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    padding: 2%;
+  }
+
+  /* .dropdownbtn {
+    background-color: #04aa6d;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .dropdownbtn:hover, .dropdownbtn:focus  {
+    background-color: var(--red);
+  }
+
+#poke-input {
+  box-sizing: border-box;
+  /* background-image: url('navbaricon.png'); */
+  /* background-position: 14px 12px;
+  background-repeat: no-repeat;
+  font-size: 16px;
+  padding: 14px 20px 12px 45px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+} */
+
+/* #poke-input:focus {
+  outline: 3px solid #ddd;
+}
+
+.poke-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f6f6f6;
+  min-width: 230px;
+  border: 1px solid #ddd;
+  z-index: 1;
+}
+
+.show {
+  display: block;
+}  */
