@@ -222,54 +222,9 @@
   
   #footer {
     background-color: var(--navy);
-    height: 220px;
+    /* height: 220px; */
     display: flex;
     justify-content: center;
-    padding: 2%;
+    padding: 2.5%;
+    margin: 0;
   }
-
-  /* .dropdownbtn {
-    background-color: #04aa6d;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-  }
-
-  .dropdownbtn:hover, .dropdownbtn:focus  {
-    background-color: var(--red);
-  }
-
-#poke-input {
-  box-sizing: border-box;
-  /* background-image: url('navbaricon.png'); */
-  /* background-position: 14px 12px;
-  background-repeat: no-repeat;
-  font-size: 16px;
-  padding: 14px 20px 12px 45px;
-  border: none;
-  border-bottom: 1px solid #ddd;
-} */
-
-/* #poke-input:focus {
-  outline: 3px solid #ddd;
-}
-
-.poke-dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f6f6f6;
-  min-width: 230px;
-  border: 1px solid #ddd;
-  z-index: 1;
-}
-
-.show {
-  display: block;
-}  */

@@ -21,12 +21,12 @@ User.belongsToMany(Post, {
     through: Vote,
     as: 'voted_posts',
     foreignKey: 'user_id',
-    onDelete: 'cascade'
+    onDelete: 'CASCADE'
 });
 
 User.hasMany(Comment, {
     foreignKey: 'user_id',
-    onDelete: 'cascade'
+    onDelete: 'CASCADE'
 });
 
 User.hasMany(Vote, {
@@ -69,7 +69,7 @@ Post.hasMany(Vote, {
 
 Post.hasMany(Comment, {
     foreignKey: 'post_id',
-    onDelete: 'cascade'
+    onDelete: 'CASCADE'
 });
 
 Post.belongsTo(User, {
