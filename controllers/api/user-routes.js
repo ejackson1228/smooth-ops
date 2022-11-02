@@ -1,5 +1,6 @@
 const router = require("express").Router();
-const { User, Post, Comment, Pokemon, Vote} = require("../../models")
+const { User, Post, Comment, Pokemon, Vote} = require("../../models");
+const withAuth = require("../../utils/auth");
 
 //FOR TESTING ONLY
 // router.get("/",(req,res)=>{
@@ -121,7 +122,7 @@ router.get('/:id', (req, res) => {
 
 
 //update existing user info by id
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
   User.update(req.body, { //req.body should contain username and password
     individualHooks: true,
     where: {
@@ -144,7 +145,7 @@ router.put('/:id', (req, res) => {
 
 
 //delete user by id
-router.delete('/:id', (req, res) => [
+router.delete('/:id', withAuth, (req, res) => {
   User.destroy({
     where: {
       id: req.params.id
@@ -162,7 +163,7 @@ router.delete('/:id', (req, res) => [
     console.log(err);
     res.status(500).json(err);
   })
-]);
+});
 
 
 

@@ -30,6 +30,8 @@
 
 {{> comments post.comments}}
 
+{{#if loggedIn}}
 <script src="/js/edit-post.js"></script>
 <script src="/js/delete-post.js"></script>
+{{/if}}
 <!-- <script src="/js/comment.js"></script> --> <!-- this script is not needed here, there's already a script in place for comments in single-post.handlebars -->

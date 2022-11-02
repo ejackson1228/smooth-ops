@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const { Comment, Post, User } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 
 //read all comments
@@ -16,7 +17,7 @@ router.get('/', (req, res) => {
 
 
 //create new comment (only if logged in)
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     if (req.session) { //check for exisiting session, only allowing logged in users to comment 
         Comment.create({
             text: req.body.comment_text,
@@ -32,7 +33,7 @@ router.post('/', (req, res) => {
 });
 
 // update comment text by ID
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
     Comment.update(
         {
             text: req.body.text
@@ -58,7 +59,7 @@ router.put('/:id', (req, res) => {
 });
 
 //delete comment by ID 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
     Comment.destroy({
         where: {
             id: req.params.id

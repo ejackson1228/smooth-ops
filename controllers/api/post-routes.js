@@ -4,7 +4,7 @@ const { Post, Team, Pokemon, User, PokeTeam, Comment } = require("../../models")
 const withAuth = require("../../utils/auth");
 
 //create new post 
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     Post.create(
         { 
         id: req.body.id, 
@@ -142,7 +142,7 @@ router.put('/:id', withAuth, (req, res) => {
 });
 
 //delete post by id
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
     Post.destroy({
         where: {
             id: req.params.id
@@ -154,7 +154,7 @@ router.delete('/:id', (req, res) => {
             return;
         }
 
-        res.json(dbPostData, 'Success!');
+        res.json(dbPostData);
     })
     .catch(err => {
         console.log(err);
