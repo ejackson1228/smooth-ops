@@ -6,7 +6,7 @@ A blog-style CMS that allows users to create their pokemon dream teams and inter
 
 ## Application
 
-Link to deployed Heroku application: 
+Link to deployed Heroku application: https://operation-pokedex.herokuapp.com/
 
 Screenshot of application: <br>
 <img src="./public/images/Poke-dream-team-screenshot.jpg" alt="Screenshot of Application" width="900px" height="600px">
